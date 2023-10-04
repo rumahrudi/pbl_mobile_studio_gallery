@@ -18,19 +18,19 @@ class _HomePageState extends State<HomePage> {
     // * Basic
     Photo(
         name: 'Basic',
-        price: '50k',
+        price: '100k',
         imagePath: 'lib/images/donut_basic.png',
         rating: '4.5'),
     // * Standard
     Photo(
         name: 'Standard',
-        price: '50k',
+        price: '250k',
         imagePath: 'lib/images/donout.png',
         rating: '4.5'),
     // * Premium
     Photo(
         name: 'Premium',
-        price: '50k',
+        price: '300k',
         imagePath: 'lib/images/donout_premium.png',
         rating: '4.5')
   ];
@@ -51,8 +51,8 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(color: Colors.grey[900]),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           //* Promo Banner
           Container(
@@ -135,18 +135,23 @@ class _HomePageState extends State<HomePage> {
             height: 10,
           ),
 
-          Expanded(
+          Container(
+            height: 250,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: photoPackage.length,
-              itemBuilder: (context, index) => PhotoTile(
-                photo: photoPackage[index],
+              itemBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: PhotoTile(
+                    photo: photoPackage[index],
+                  ),
+                ),
               ),
             ),
           ),
-          const SizedBox(
-            height: 25,
-          ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Text(
@@ -179,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                       height: 60,
                     ),
                     SizedBox(
-                      height: 20,
+                      width: 20,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
