@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pbl_studio_gallery/components/button.dart';
 import 'package:pbl_studio_gallery/components/photo_tile.dart';
 import 'package:pbl_studio_gallery/models/photo.dart';
+import 'package:pbl_studio_gallery/page/package_detail.dart';
 import 'package:pbl_studio_gallery/theme/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,6 +35,18 @@ class _HomePageState extends State<HomePage> {
         imagePath: 'lib/images/donout_premium.png',
         rating: '4.5')
   ];
+
+  //* Navigate to package details
+  void navigateToPackageDetail(int index) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PackageDetail(
+            photo: photoPackage[index],
+          ),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,6 +159,7 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: PhotoTile(
                     photo: photoPackage[index],
+                    onTap: () => navigateToPackageDetail(index),
                   ),
                 ),
               ),
