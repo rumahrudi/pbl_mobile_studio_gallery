@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pbl_studio_gallery/components/button.dart';
 import 'package:pbl_studio_gallery/models/photo.dart';
 import 'package:pbl_studio_gallery/theme/colors.dart';
 
@@ -112,8 +113,13 @@ class _PackageDetailState extends State<PackageDetail> {
                       )
                       // * quantity
                     ],
-                  )
+                  ),
+                  SizedBox(height: 20),
                   // * button
+                  MyButton(
+                    text: 'Add to cart',
+                    onTap: () {},
+                  )
                 ],
               ),
             ),
